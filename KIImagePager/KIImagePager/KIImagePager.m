@@ -216,6 +216,15 @@
             [imageView setUserInteractionEnabled:YES];
             
             [_scrollView addSubview:imageView];
+
+            if ([self.dataSource respondsToSelector:@selector(customViewForImageAtIndex:)]) {
+                UIView *customView = [self.dataSource customViewForImageAtIndex:i];
+                CGRect customViewFrame = customView.frame;
+                customViewFrame.origin.x += CGRectGetWidth(self.scrollView.frame) * i;
+                customView.frame = customViewFrame;
+
+                [self.scrollView addSubview:customView];
+            }
         }
         
         [_countLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)[[_dataSource arrayWithImages] count]]];

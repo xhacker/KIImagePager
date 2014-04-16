@@ -20,6 +20,7 @@
 @optional
 - (UIImage *) placeHolderImageForImagePager;
 - (NSString *) captionForImageAtIndex:(NSUInteger)index;
+- (UIView *) customViewForImageAtIndex:(NSUInteger)index;
 
 @end
 
@@ -60,4 +61,3 @@
 - (void) setCurrentPage:(NSUInteger)currentPage animated:(BOOL)animated;
 
 @end
-
